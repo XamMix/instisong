@@ -12,7 +12,6 @@ function getDataInstituciones() {
   const formInstituciones = document.getElementById('formInstituciones');
   fetch('https://sheet.best/api/sheets/f169a08e-cd34-4ea2-bc0d-21ad75736277');
   method: 'POST',
-  mode: 'cors',
   headers: {
     'Content-Type': 'application/json'
   }

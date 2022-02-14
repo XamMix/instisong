@@ -1,331 +1,47 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <?!= include('CSS') ?>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
-      <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-  	<link rel="stylesheet" href="css.css">
-  <title>MUNICIPALIDAD DE BERAZATEGUI</title>
+  <base target="_top">
+  <?!= include('css') ?>
 </head>
-<header>
-  <img src="https://tuquejasuma.com/media/images/entity3822_1dLHsP0.png" width="240" height="80">
-</header>
 
 <body>
-  <br>
-  <nav>
-    <div class="enlaces">
-      <a href="https://script.google.com/macros/s/AKfycbyLnjPJ8pGuCBVFwRP_B3zUtUm1gc3j6bIr-o6X/exec">Instituciones del
-        radio</a>
-    </div>
-  </nav>
-  </br>
 
-  <div class="container">
-    <!-- Content here -->
-    <h1>LISTADO DE INSTITUCIONES</h1>
+  <div class="conteiner">
 
-    <form class="formInstituciones" id="formInstituciones">
-
-      <div class="row">
-        <div class="col-md-3">
-
-          <label for="institucionDatalist" class="form-label">Legajo</label>
-          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Buscar por Legajo o institución..." onchange="actualizarInfo(this)">
-          <datalist id="datalistOptions">
-          </datalist>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Fecha de fundación</label>
-          <input type="text" class="form-control" id="fundacion" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Matricula</label>
-          <input type="text" class="form-control" id="matricula" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Personeria Jurídica</label>
-          <input type="text" class="form-control" id="personeria" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Ultima visita</label>
-          <input type="text" class="form-control" id="visita" disabled>
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <div class="col">
-          <label for="nombre" class="form-label">Nombre de institución</label>
-          <input class="form-control" id="nombre" disabled>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <label for="nombre" class="form-label">Tipo de institución</label>
-          <input type="text" class="form-control" id="tipo" disabled>
-        </div>
-        <div class="col">
-          <label for="nombre" class="form-label">Domicilio</label>
-          <input type="text" class="form-control" id="direccion" disabled>
-        </div>
-        <div class="col">
-          <label for="nombre" class="form-label">Localidad</label>
-          <input type="text" class="form-control" id="localidad" disabled>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <label for="nombre" class="form-label">Barrio</label>
-          <input class="form-control" id="barrio" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Cierre de ejercicio</label>
-          <input type="text" class="form-control" id="cierre" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Ultima asamblea</label>
-          <input type="text" class="form-control" id="asamblea" disabled>
-        </div>
-
-        <div class="col-md-2">
-          <label for="nombre" class="form-label">Vencimiento</label>
-          <input type="text" class="form-control" id="vencimiento" disabled>
-        </div>
-      </div>
-  </div>
-  <div class="contenedor">
-    <div>
-      <br></br>
-      <h4>Datos de Comsión Directiva</h4>
+    <div class="mb-4" id="login">
+      <h2>Login</h2>
     </div>
 
-    <div class="row">
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Presidente</label>
-        <input type="text" class="form-control" id="presidente" disabled>
+    <form name="userLogin" id="userLogin" onsubmit="enviarFormulario(this)">
+
+      <div class="input-group mb-3 w-50">
+        <span class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </span>
+        <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario*" required>
       </div>
 
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">DNI</label>
-        <input type="text" class="form-control" id="dnip" disabled>
+      <div class="input-group mb-3 w-50">
+        <span class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+  <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg>
+        </span>
+        <input type="password" class="form-control" name="contraseña" id="contraseña" placeholder="********" required>
       </div>
 
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="direccionp" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Teléfono</label>
-        <input type="text" class="form-control" id="telefonop" disabled>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Secretario</label>
-        <input type="text" class="form-control" id="secretario" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">DNI</label>
-        <input type="text" class="form-control" id="dnis" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="direccions" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Teléfono</label>
-        <input type="text" class="form-control" id="telefonos" disabled>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Tesorero</label>
-        <input type="text" class="form-control" id="tesorero" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">DNI</label>
-        <input type="text" class="form-control" id="dnit" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="direcciont" disabled>
-      </div>
-
-      <div class="col-md-3">
-        <label for="nombre" class="form-label">Teléfono</label>
-        <input type="text" class="form-control" id="telefonot" disabled>
-      </div>
-    </div>
+      <button type="submit" class="btn btn-primary" id="submitButton">Login</button>
 
     </form>
+
   </div>
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
-
-  <script>
-    window.addEventListener("load", loadInfoDatalist);
-    const dtlInstituciones = document.getElementById("datalistOptions")
-
-    function loadInfoDatalist() {
-  // console.log('Datalist');
-    google.script.run
-    .withSuccessHandler(cargarDatalist)
-    .getDataInstituciones()
-}
-
-function cargarDatalist(dataInstituciones) {
-  //console.log('dataInstituciones');
-  const inputInstituciones = document.getElementById("datalistOptions");
-  dataInstituciones.forEach( institucion =>{
-    const option = document.createElement("option");
-    option.value = institucion[0];
-    option.text = institucion[1] + ', ' + institucion[2]// + ', ' + institucion[3];
-    option.dataset.nombre = institucion[1];
-    option.dataset.tipo = institucion[2];
-    option.dataset.direccion = institucion[3];
-    option.dataset.localidad = institucion[4];
-    option.dataset.barrio = institucion[5];
-    option.dataset.matricula = institucion[6];
-    option.dataset.personeria = institucion[7];
-    option.dataset.cierre = institucion[8];
-    option.dataset.fundacion = institucion[9];
-    option.dataset.asamblea = institucion[10];
-    option.dataset.vencimiento = institucion[11];
-    option.dataset.presidente = institucion[12];
-    option.dataset.dnip = institucion[13];
-    option.dataset.direccionp = institucion[14];
-    option.dataset.telefonop = institucion[15];
-    option.dataset.secretario = institucion[16];
-    option.dataset.dnis = institucion[17];
-    option.dataset.direccions = institucion[18];
-    option.dataset.telefonos = institucion[19];
-    option.dataset.tesorero = institucion[20];
-    option.dataset.dnit = institucion[21];
-    option.dataset.direcciont = institucion[22];
-    option.dataset.telefonot = institucion[23];
-    option.dataset.visita = institucion[24];
-
-    inputInstituciones.appendChild(option);
-    })
-}
-
-function actualizarInfo(datalist){
-  for(let i  = 0; i < dtlInstituciones.options.length; i++) {
-    if(dtlInstituciones.options[i].value === datalist.value) {
-      document.getElementById("nombre").value = dtlInstituciones.options[i].getAttribute("data-nombre");
-      document.getElementById("tipo").value = dtlInstituciones.options[i].getAttribute("data-tipo");
-      document.getElementById("direccion").value = dtlInstituciones.options[i].getAttribute("data-direccion");
-      document.getElementById("localidad").value = dtlInstituciones.options[i].getAttribute("data-localidad");
-      document.getElementById("barrio").value = dtlInstituciones.options[i].getAttribute("data-barrio");
-      document.getElementById("matricula").value = dtlInstituciones.options[i].getAttribute("data-matricula");
-      document.getElementById("personeria").value = dtlInstituciones.options[i].getAttribute("data-personeria");
-      document.getElementById("cierre").value = dtlInstituciones.options[i].getAttribute("data-cierre");
-      document.getElementById("fundacion").value = dtlInstituciones.options[i].getAttribute("data-fundacion");
-      document.getElementById("asamblea").value = dtlInstituciones.options[i].getAttribute("data-asamblea");
-      document.getElementById("vencimiento").value = dtlInstituciones.options[i].getAttribute("data-vencimiento");
-      document.getElementById("presidente").value = dtlInstituciones.options[i].getAttribute("data-presidente");
-      document.getElementById("dnip").value = dtlInstituciones.options[i].getAttribute("data-dnip");
-      document.getElementById("direccionp").value = dtlInstituciones.options[i].getAttribute("data-direccionp");
-      document.getElementById("telefonop").value = dtlInstituciones.options[i].getAttribute("data-telefonop");
-      document.getElementById("secretario").value = dtlInstituciones.options[i].getAttribute("data-secretario");
-      document.getElementById("dnis").value = dtlInstituciones.options[i].getAttribute("data-dnis");
-      document.getElementById("direccions").value = dtlInstituciones.options[i].getAttribute("data-direccions");
-      document.getElementById("telefonos").value = dtlInstituciones.options[i].getAttribute("data-telefonos");
-      document.getElementById("tesorero").value = dtlInstituciones.options[i].getAttribute("data-tesorero");
-      document.getElementById("dnit").value = dtlInstituciones.options[i].getAttribute("data-dnit");
-      document.getElementById("direcciont").value = dtlInstituciones.options[i].getAttribute("data-direcciont");
-      document.getElementById("telefonot").value = dtlInstituciones.options[i].getAttribute("data-telefonot");
-      document.getElementById("visita").value = dtlInstituciones.options[i].getAttribute("data-visita");
-
-      break;
-
-      document.getElementById("nombre").value = "";
-      document.getElementById("tipo").value = "";
-      document.getElementById("direccion").value = "";
-      document.getElementById("localidad").value = "";
-      document.getElementById("barrio").value = "";
-      document.getElementById("matricula").value = "";
-      document.getElementById("personeria").value = "";
-      document.getElementById("cierre").value = "";
-      document.getElementById("fundacion").value = "";
-      document.getElementById("asamblea").value = "";
-      document.getElementById("vencimiento").value = "";
-      document.getElementById("presidente").value = "";
-      document.getElementById("dnip").value = "";
-      document.getElementById("direccionp").value = "";
-      document.getElementById("telefonop").value = "";
-      document.getElementById("secretario").value = "";
-      document.getElementById("dnis").value = "";
-      document.getElementById("direccions").value = "";
-      document.getElementById("telefonos").value = "";
-      document.getElementById("tesorero").value = "";
-      document.getElementById("dnit").value = "";
-      document.getElementById("direcciont").value = "";
-      document.getElementById("telefonot").value = "";
-      document.getElementById("visita").value = "";
-    }
-  }
-}
-    
-    </script>
-<script>
-function darkmode() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-
-
-      function uiprint() { 
-        window.print(); 
-      }
-</script>
-  
-  <?!= include('JS'); ?>
-  <script src="codigo.js"></script>
-  <br>
-  <div>
-    <button onclick="darkmode()">Modo oscuro</button>
-    <button onclick="uiprint()">Imprime</button>
-  </div>
-  </br>
+  <?!= include('js') ?>
 </body>
 
 </html>
